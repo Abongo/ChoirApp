@@ -1,0 +1,35 @@
+<h1>Listing members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Voice</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Year joined</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.name %></td>
+        <td><%= member.voice %></td>
+        <td><%= member.phone_number %></td>
+        <td><%= member.email %></td>
+        <td><%= member.Year_Joined %></td>
+        <td><%= link_to 'Show', member %></td>
+        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Member', new_member_path %>
